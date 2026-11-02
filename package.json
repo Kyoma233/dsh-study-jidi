@@ -1,0 +1,49 @@
+{
+  "name": "dsh-study-jidi",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "学习机地：在 DSH 侧栏按「最近发行」浏览 jidiyouxi.com 的游戏，支持翻页，点卡片在面板内查看游戏信息与下载资源（磁力/网盘）。",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "games"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kyoma233/dsh-study-jidi.git"
+  },
+  "homepage": "https://github.com/Kyoma233/dsh-study-jidi#readme",
+  "bugs": {
+    "url": "https://github.com/Kyoma233/dsh-study-jidi/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}
